@@ -1,0 +1,122 @@
+.logo-icon {
+    width: 16px;
+    position: relative;
+    height: 16px;
+    object-fit: cover;
+}
+
+.elias {
+    position: relative;
+}
+
+.logo-parent {
+    position: absolute;
+    top: 32px;
+    left: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.div {
+    position: relative;
+    font-weight: 500;
+}
+
+.home {
+    position: relative;
+    font-weight: 500;
+    color: #fff;
+}
+
+.header-link {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.home1 {
+    position: relative;
+    color: #abb2bf;
+}
+
+.header-link1 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.en {
+    position: relative;
+    font-weight: 600;
+    z-index: 0;
+}
+
+.language-switcher-child {
+    width: 10px;
+    position: relative;
+    height: 5px;
+    z-index: 1;
+}
+
+.ru-parent {
+    margin: 0 !important;
+    position: absolute;
+    top: 25px;
+    left: 0px;
+    background-color: #282c33;
+    border: 1px solid #abb2bf;
+    box-sizing: border-box;
+    height: 1px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px 8px 0px;
+    gap: 8px;
+    opacity: 0;
+    z-index: 2;
+}
+
+.language-switcher {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    gap: 4px;
+    color: #abb2bf;
+}
+
+.header-link-parent {
+    position: absolute;
+    height: 34.43%;
+    top: 52.46%;
+    right: 0;
+    bottom: 13.11%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 32px;
+    color: #c778dd;
+}
+
+.header {
+    width: 100wh;
+    position: relative;
+    background-color: #282c33;
+    height: 61px;
+    text-align: left;
+    font-size: 16px;
+    color: #fff;
+    font-family: 'Fira Code';
+}
+
