@@ -1,0 +1,64 @@
+.skill-name {
+    position: relative;
+    font-weight: 600;
+}
+
+.skill-name-wrapper {
+    
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0px 8px;
+}
+
+.horiz-line {
+    align-self: stretch;
+    position: relative;
+    border-top: 1px solid #abb2bf;
+    box-sizing: border-box;
+    height: 1px;
+}
+
+.content-style {
+    position: relative;
+    width: 29px;
+    position: relative;
+    display: none;
+}
+
+.typescript-parent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+}
+.javascript1 {
+    width: 96px;
+    position: relative;
+    display: none;
+}
+.python-group {
+    display: none;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 11px;
+}
+
+.skill-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0px 8px;
+    gap: 8px;
+    color: #abb2bf;
+}
+
+
+
+
+

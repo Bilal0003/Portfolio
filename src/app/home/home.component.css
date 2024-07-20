@@ -1,5 +1,17 @@
 .home-container{
+    
     width: 100vw;
     height: 100vh;
     background: var(--background, #282C33);
 }
+
+/* ma permis de force "footer" en bas de page*/
+:host{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+
+

@@ -1,0 +1,95 @@
+.with-great-power {
+    color: #FFF;
+    font-family: "Fira Code";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.icon {
+    width: 25.5px;
+    position: relative;
+    height: 20.7px;
+}
+.wrapper {
+    position: relative;
+    margin: 0 !important;
+    position: absolute;
+    top: -14px;
+    left: 11px;
+    background-color: #282c33;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 4px 8px;
+    z-index: 1;
+}
+.dr-who {
+    position: relative;
+    font-size: 24px;
+    font-family: 'Fira Code';
+    color: #fff;
+    text-align: left;
+}
+.dr-who-wrapper {
+    width: 170px;
+    margin: 0 !important;
+    position: absolute;
+    top: 97px;
+    right: -1px;
+    border: 1px solid #abb2bf;
+    border-top:none;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 15px;
+    z-index: 2;
+}
+.container {
+    margin: 0 !important;
+    position: absolute;
+    top: 80px;
+    right: 16.5px;
+    background-color: #282c33;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 4px 8px;
+    z-index: 3;
+}
+
+.quote {
+    position: relative;
+    top: 112px;
+    margin: auto;
+    width: 790px;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding: 32px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    border: 1px solid var(--gray, #ABB2BF);
+    background: var(--background, #282C33);
+}
+
+.rectangle {
+    position: relative;
+    width: 91px;
+    height: 91px;
+    float: right;
+    margin-right: -10px;
+    border: 1px solid #abb2bf;
+    box-sizing: border-box;
+    height: 91px;
+}
+
+
+
+
+

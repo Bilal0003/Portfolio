@@ -1,0 +1,148 @@
+.h2-parent {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1027px;
+    height: 42px;
+    font-size: 32px;
+    color: #c778dd;
+}
+
+.h2 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 701px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.instance-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.live {
+    position: relative;
+    font-weight: 500;
+}
+
+.skills1 {
+    position: relative;
+    font-weight: 500;
+    color: #fff;
+}
+
+.line-7-stroke {
+    flex: 1;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    height: 1px;
+}
+
+.right-container{
+    margin-top: 50px;
+    position: relative;
+    width: 584px;
+    height: 280px;
+    float: right;
+    flex-shrink: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    
+}
+
+.left-container{
+    margin-top: 50px;
+    position: relative;
+    width: 349px;
+    height: 282px;
+    float: left;
+    flex-shrink: 0;
+}
+
+.skill {
+    width: 180px;
+    height: auto;
+    display: inline-flex;
+    padding: 8px 0px;
+    flex-direction: column;
+    flex-grow: 1;
+    align-items: flex-start;
+    gap: 8px;
+    border: 1px solid var(--gray, #ABB2BF);
+    
+}
+
+
+.skills-container{
+    margin-top: 50px;
+    width: 1027px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    font-size: 16px;
+    color: #abb2bf;
+    font-family: 'Fira Code';
+}
+
+
+.message-me-here {
+    position: relative;
+    font-weight: 600;
+}
+.discord-icon {
+    width: 32px;
+    position: relative;
+    height: 32px;
+}
+.elias {
+    position: relative;
+}
+.discord-parent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+.instance-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px;
+    color: #abb2bf;
+}
+.message-me-here-parent {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border: 1px solid #abb2bf;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 16px;
+    gap: 16px;
+}
+.frame-parent {
+    width: 100%;
+    position: relative;
+    height: 141px;
+    text-align: left;
+    font-size: 16px;
+    color: #fff;
+    font-family: 'Fira Code';
+}
+
+

@@ -45,12 +45,6 @@
     color: #abb2bf;
 }
 
-.header-link1 {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
 
 .en {
     position: relative;
@@ -110,7 +104,9 @@
 }
 
 .header {
-    width: 100wh;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60vw;
     position: relative;
     background-color: #282c33;
     height: 61px;

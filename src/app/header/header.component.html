@@ -1,26 +1,17 @@
 <div class="header">
   <div class="logo-parent" id="frameContainer">
-    <img class="logo-icon" alt="Logo" src="/assets/Logo.png" />
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 0.5H8V4.5H4H0V8.5V12.5V16.5H4H8V12.5H12H16V8.5V4.5V0.5H12ZM4 12.5H8V8.5H12V4.5H8V8.5H4V12.5Z" fill="white"/>
+    </svg>
     <b class="bilal">Bilal</b>
   </div>
   
   <div class="header-link-parent">
-    <div class="header-link" id="headerLinkContainer">
-      <div class="div">#</div>
-      <div class="home">home</div>
-    </div>
-    <div class="header-link1">
+    <div class="header-link" *ngFor="let section of HomeSections">
       <div class="elias">#</div>
-      <div class="home1">works</div>
+      <div class="home">{{ section }}</div>
     </div>
-    <div class="header-link1">
-      <div class="elias">#</div>
-      <div class="home1">about-me</div>
-    </div>
-    <div class="header-link1">
-      <div class="elias">#</div>
-      <div class="home1">contacts</div>
-    </div>
+  
     <div class="language-switcher">
       <div class="en">EN</div>
       <img class="language-switcher-child" alt="" src="Group 58.svg" />

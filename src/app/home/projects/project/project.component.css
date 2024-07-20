@@ -1,0 +1,87 @@
+.project-child {
+    width: 330.6px;
+    position: relative;
+    height: 201px;
+    object-fit: cover;
+}
+
+.html {
+    position: relative;
+}
+
+.coding-langs {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px;
+    gap: 8px;
+}
+
+.chertnodes {
+    align-self: stretch;
+    position: relative;
+    font-size: 24px;
+    font-weight: 500;
+}
+.minecraft-servers-hosting {
+    align-self: stretch;
+    position: relative;
+    color: #abb2bf;
+}
+.live {
+    position: relative;
+    font-weight: 500;
+}
+.live-wrapper {
+    border: 1px solid #c778dd;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px 16px;
+}
+.demo-wrapper {
+    border: 1px solid #abb2bf;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px 16px;
+    color: #abb2bf;
+}
+.instance-parent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.chertnodes-parent {
+    align-self: stretch;
+    border-top: 1px solid #abb2bf;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 16px;
+    gap: 16px;
+    color: #fff;
+}
+.project {
+    position: relative;
+    border: 1px solid #abb2bf;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    font-size: 16px;
+    color: #abb2bf;
+    font-family: 'Fira Code';
+}
+
