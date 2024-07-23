@@ -1,0 +1,176 @@
+.project-child {
+    width: 330.6px;
+    position: relative;
+    height: 201px;
+    object-fit: cover;
+}
+.html {
+    position: relative;
+}
+.html-parent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px;
+    gap: 8px;
+}
+.chertnodes {
+    align-self: stretch;
+    position: relative;
+    font-size: 24px;
+    font-weight: 500;
+}
+.minecraft-servers-hosting {
+    align-self: stretch;
+    position: relative;
+    color: #abb2bf;
+}
+.live {
+    position: relative;
+    font-weight: 500;
+}
+.live-wrapper {
+    border: 1px solid #c778dd;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px 16px;
+}
+.demo-wrapper {
+    border: 1px solid #abb2bf;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px 16px;
+    color: #abb2bf;
+}
+.chertnodes-parent {
+    align-self: stretch;
+    border-top: 1px solid #abb2bf;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 16px;
+    gap: 16px;
+    color: #fff;
+}
+.project {
+    border: 1px solid #abb2bf;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.instance-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.chertnodes2 {
+    align-self: stretch;
+    position: relative;
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+}
+.minecraft-servers-hosting2 {
+    align-self: stretch;
+    position: relative;
+}
+.demo-container {
+    border: 1px solid #abb2bf;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px 16px;
+}
+.chertnodes-container {
+    align-self: stretch;
+    border-top: 1px solid #abb2bf;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 16px;
+    gap: 16px;
+}
+.project-parent {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+}
+.project2 {
+    width: 334px;
+    border: 1px solid #abb2bf;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.frame-parent {
+    position: absolute;
+    top: 90px;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+}
+.small-projects {
+    position: relative;
+    font-weight: 500;
+    color: #fff;
+}
+.h2 {
+    position: absolute;
+    height: 4.57%;
+    width: 26.37%;
+    top: 0%;
+    right: 73.63%;
+    bottom: 95.43%;
+    left: 0%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 32px;
+    color: #c778dd;
+}
+.complete {
+    margin-top: 90px;
+    width: 1027px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    height: 919px;
+    text-align: left;
+    font-size: 16px;
+    color: #abb2bf;
+    font-family: 'Fira Code';
+}
+
+.project-parent .project{
+    transition: 400ms;
+}
+
+.project:hover{
+    transform: scale(1.1, 1.1);
+}
+
+.project-parent:hover > .project:not(:hover) {
+    filter: blur(10px);
+    transform: scale(0.9, 0.9);
+}

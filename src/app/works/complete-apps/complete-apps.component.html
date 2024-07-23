@@ -1,0 +1,19 @@
+<div class="complete">
+
+  <div class="frame-parent">
+
+    <div class="project-parent">
+
+      <div class="project" *ngFor="let project of CompleteProjects" id="{{project.name}}">
+        <app-project [project]="project"></app-project>
+      </div>
+
+    </div>
+    
+  </div>
+
+  <div class="h2">
+    <div class="live">#</div>
+    <div class="small-projects">complete-apps</div>
+  </div>
+</div>

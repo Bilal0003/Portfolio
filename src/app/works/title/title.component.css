@@ -1,0 +1,40 @@
+.div {
+    position: relative;
+    font-weight: 600;
+}
+.projects {
+    position: relative;
+    font-weight: 600;
+    color: #fff;
+}
+.parent {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.list-of-my {
+    position: absolute;
+    top: 56px;
+    left: 0px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.title {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 80%;
+    width: 100%;
+    position: relative;
+    height: 77px;
+    text-align: left;
+    font-size: 32px;
+    color: #c778dd;
+    font-family: 'Fira Code';
+}
+

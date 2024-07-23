@@ -11,7 +11,7 @@ import { ProjectsComponent } from '../projects.component';
 })
 export class ProjectComponent {
   
-  @Input() project: any;
+  @Input() project!: IProject;
   
   constructor(){
 

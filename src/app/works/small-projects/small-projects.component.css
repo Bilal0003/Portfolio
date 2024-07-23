@@ -1,15 +1,7 @@
-.project-child {
-    width: 330.6px;
-    position: relative;
-    height: 201px;
-    object-fit: fill;
-}
-
 .html {
     position: relative;
 }
-
-.coding-langs {
+.html-parent {
     align-self: stretch;
     display: flex;
     flex-direction: row;
@@ -18,7 +10,6 @@
     padding: 8px;
     gap: 8px;
 }
-
 .chertnodes {
     align-self: stretch;
     position: relative;
@@ -42,23 +33,12 @@
     justify-content: flex-start;
     padding: 8px 16px;
 }
-.demo-wrapper {
-    border: 1px solid #abb2bf;
+.instance-wrapper {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 8px 16px;
-    color: #abb2bf;
 }
-.instance-parent {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 16px;
-}
-
 .chertnodes-parent {
     align-self: stretch;
     border-top: 1px solid #abb2bf;
@@ -71,14 +51,62 @@
     color: #fff;
 }
 .project {
-    position: relative;
+    width: 333px;
     border: 1px solid #abb2bf;
     box-sizing: border-box;
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
+}
+.html-wrapper {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px;
+}
+.project-parent {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+}
+.frame-parent {
+    position: absolute;
+    top: 90px;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 16px;
+}
+.small-projects {
+    position: relative;
+    font-weight: 500;
+    color: #fff;
+}
+.h2 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-size: 32px;
+    color: #c778dd;
+}
+.small {
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1027px;
+    position: relative;
+    height: 828px;
     text-align: left;
     font-size: 16px;
     color: #abb2bf;

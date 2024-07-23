@@ -37,7 +37,7 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
-    cursor: pointer;
+
 }
 
 .home1 {
@@ -115,4 +115,39 @@
     color: #fff;
     font-family: 'Fira Code';
 }
+
+.line-10-stroke {
+    width: 1px;
+    position: relative;
+    height: 191px;
+    object-fit:contain;
+}
+.github-icon {
+    width: 32px;
+    position: relative;
+    height: 32px;
+}
+.github-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.media {
+    
+    margin-left: 1%;
+    position: absolute;
+    background-color: #282c33;
+    top: 0;
+    width: 2%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
 

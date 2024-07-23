@@ -1,6 +1,7 @@
 import { Component, Input, output } from '@angular/core';
 import { ProjectComponent } from './project/project.component';
 import { NgFor } from '@angular/common';
+import { IProject } from './project.model';
 
 @Component({
   selector: 'app-projects',
@@ -10,7 +11,7 @@ import { NgFor } from '@angular/common';
   styleUrl: './projects.component.css'
 })
 export class ProjectsComponent {
-  projects:any;
+  projects: IProject[];
 
   constructor(){
     this.projects=[

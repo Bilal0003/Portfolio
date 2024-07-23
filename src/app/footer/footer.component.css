@@ -10,7 +10,7 @@
 }
 
 .divider {
-    width: 100%;
+    width: calc(100% - 1.5px);
     height: 0px;
     border: 1px #ABB2BF solid;
 }

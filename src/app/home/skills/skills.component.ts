@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { SkillComponent } from "./skill/skill.component";
 import { AnySoaRecord } from 'dns';
 import { NgFor } from '@angular/common';
+import { ISkill } from './skill.model';
 
 @Component({
   selector: 'app-skills',
@@ -11,7 +12,7 @@ import { NgFor } from '@angular/common';
   styleUrl: './skills.component.css'
 })
 export class SkillsComponent {
-  skills:any;
+  skills: ISkill[];
 
   constructor(){
     this.skills = [{
