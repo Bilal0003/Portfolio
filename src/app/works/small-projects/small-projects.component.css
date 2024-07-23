@@ -1,64 +1,6 @@
 .html {
     position: relative;
 }
-.html-parent {
-    align-self: stretch;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 8px;
-    gap: 8px;
-}
-.chertnodes {
-    align-self: stretch;
-    position: relative;
-    font-size: 24px;
-    font-weight: 500;
-}
-.minecraft-servers-hosting {
-    align-self: stretch;
-    position: relative;
-    color: #abb2bf;
-}
-.live {
-    position: relative;
-    font-weight: 500;
-}
-.live-wrapper {
-    border: 1px solid #c778dd;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 8px 16px;
-}
-.instance-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
-.chertnodes-parent {
-    align-self: stretch;
-    border-top: 1px solid #abb2bf;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 16px;
-    gap: 16px;
-    color: #fff;
-}
-.project {
-    width: 333px;
-    border: 1px solid #abb2bf;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
 .html-wrapper {
     align-self: stretch;
     display: flex;
@@ -86,9 +28,14 @@
 }
 .small-projects {
     position: relative;
+    font-size: 32px;
     font-weight: 500;
+    font-family: 'Fira Code';
     color: #fff;
+    text-align: left;
 }
+
+
 .h2 {
     position: absolute;
     top: 0px;
@@ -101,15 +48,24 @@
     color: #c778dd;
 }
 .small {
+    border: 1px solid #abb2bf;
     margin-top: 200px;
     margin-left: auto;
     margin-right: auto;
     width: 1027px;
     position: relative;
-    height: 828px;
+    height: auto;
     text-align: left;
     font-size: 16px;
     color: #abb2bf;
     font-family: 'Fira Code';
 }
 
+.live {
+    position: relative;
+    font-size: 32px;
+    font-weight: 500;
+    font-family: 'Fira Code';
+    color: #c778dd;
+    text-align: left;
+    }

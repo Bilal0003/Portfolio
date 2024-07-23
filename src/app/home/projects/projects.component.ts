@@ -2,18 +2,20 @@ import { Component, Input, output } from '@angular/core';
 import { ProjectComponent } from './project/project.component';
 import { NgFor } from '@angular/common';
 import { IProject } from './project.model';
+import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [ProjectComponent, NgFor],
+  imports: [ProjectComponent, NgFor, RouterModule],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'
 })
 export class ProjectsComponent {
   projects: IProject[];
 
-  constructor(){
+  constructor(private router: Router){
     this.projects=[
      {ProjectImage: "/assets/ChertNodes.png",
       languages: "HTML SCSS Python Flask",
@@ -32,6 +34,17 @@ export class ProjectsComponent {
      }
 
     ]; 
+  }
+
+  NavToWorks(){
+    this.router.navigate(['/works']).then( () => {
+      window.scrollTo(0, 0);
+
+      setTimeout( () =>{const element = document.getElementById('complete');
+      if (element) {
+        element.scrollIntoView( {behavior: 'smooth'} );
+      }}, 300);
+    });
   }
   
 }

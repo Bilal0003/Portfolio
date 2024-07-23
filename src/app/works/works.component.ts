@@ -4,6 +4,7 @@ import { FooterComponent } from "../footer/footer.component";
 import { CompleteAppsComponent } from "./complete-apps/complete-apps.component";
 import { SmallProjectsComponent } from "./small-projects/small-projects.component";
 import { TitleComponent } from "./title/title.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-works',
@@ -14,4 +15,16 @@ import { TitleComponent } from "./title/title.component";
 })
 export class WorksComponent {
 
+  constructor(private router: Router){
+
+  }
+
+  NavToWorks(){
+    this.router.navigate(['/works']).then( () => {
+      const element = document.getElementById('complete');
+      if (element) {
+        element.scrollIntoView( {behavior: 'smooth'} );
+      }
+    });
+  }
 }

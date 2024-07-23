@@ -222,3 +222,7 @@
     border: 1px solid var(--gray, #ABB2BF);
 
 }
+
+.view-all:hover{
+    color: #c778dd;
+}
