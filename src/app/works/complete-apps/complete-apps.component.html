@@ -5,7 +5,11 @@
     <div class="project-parent">
 
       <div class="project" *ngFor="let project of CompleteProjects" id="{{project.name}}">
-        <app-project [project]="project"></app-project>
+        <a 
+        (click)="NavToProject(project.route)"
+        [routerLink] = "project.route">
+          <app-project [project]="project"></app-project>
+        </a>
       </div>
 
     </div>
