@@ -150,4 +150,12 @@
     gap: 8px;
 }
 
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color:#c778dd;
+}
+
 
