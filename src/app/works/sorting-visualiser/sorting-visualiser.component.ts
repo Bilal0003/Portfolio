@@ -14,24 +14,28 @@ export class SortingVisualiserComponent {
   array: number[];
   n: number;
   SortContainer: any;
+  delay: number;
 
   constructor(private renderer: Renderer2){
     this.n = 50;
     this.array = Array(this.n);
+    this.delay = 10;
+    /* this.SortContainer = null; */
   }
 
   ngOnInit(){
+    
     this.SortContainer = document.getElementById("sorting-container");
-
+    
     for (let i=0; i < this.array.length; i++){
       this.array[i] = Math.random() * 1 + 0.05;
     }
-
     this.showBars();
 
   }
 
-  showBars(){
+  showBars(moves?: any){
+    /* if (!this.SortContainer) return; */
     this.SortContainer.innerHTML = "";
     this.SortContainer = document.getElementById("sorting-container");
     
@@ -51,4 +55,41 @@ export class SortingVisualiserComponent {
 
   }
 
+
+  async BS2(array: number[]) {
+    let sorted = false;
+    let c = 0;
+    while (!sorted) {
+      sorted = true;
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] > array[i + 1]) {
+          c = array[i];
+          array[i] = array[i + 1];
+          array[i + 1] = c;
+          this.showBars({ indices: [i, i + 1] });
+          await this.sleep(this.delay);
+          sorted = false;
+        }
+      }
+    }
+
+    
+}
+
+  sleep(delay: number) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, delay);
+    });
+  }
+  
+  async runBtn(sort:any, ...args: any[]) {
+    var running = true;
+    await sort(...args);
+    this.showBars();
+    running = false;
+  }
+  
+  playBS2() {
+    this.runBtn(this.BS2.bind(this), this.array);
+  }
 }
