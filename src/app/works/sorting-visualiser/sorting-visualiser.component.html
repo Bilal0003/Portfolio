@@ -1,6 +1,34 @@
 <div class="container"  >
   <div class="title">Sorting Visualiser</div>
-  <div class="sorting-container" id="sorting-container"></div>
+  <div class="mid-container">
+
+    <div class="size-span">
+      <div class="delay-size-text">Size</div>
+      <input id="size-slider"
+      type="range"
+      min="10"
+      max="100"
+      step="1"
+      value="60"
+      (input)="updateArraySize()"/>
+    </div >
+
+
+    <div class="sorting-container" id="sorting-container"></div>
+    
+    
+    <div class="delay-span"> 
+      <div class="delay-size-text">Delay</div>
+      <input id="time-slider"
+      type="range"
+      min="0"
+      max="300"
+      stepDown="10"
+      [value]="10"
+      (input)="updateDelay()"/>
+    </div>
+  </div>
+
   <div class="buttons-container" >
     <button class="btn" (click)="playBS2()">Bubble Sort</button>
     <button class="btn" (click)="playMerge()">Merge Sort</button>

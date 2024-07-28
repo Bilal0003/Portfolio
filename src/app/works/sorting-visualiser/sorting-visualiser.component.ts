@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { ControlContainer } from '@angular/forms';
 import { withNavigationErrorHandler } from '@angular/router';
+import { isInt8Array } from 'util/types';
 
 @Component({
   selector: 'app-sorting-visualiser',
@@ -12,7 +13,7 @@ import { withNavigationErrorHandler } from '@angular/router';
 
 
 export class SortingVisualiserComponent {
-  array: number[];
+  array!: number[];
   n: number;
   SortContainer: any;
   delay: number;
@@ -20,21 +21,22 @@ export class SortingVisualiserComponent {
 
   constructor(private renderer: Renderer2){
     this.n = 50;
-    /* this.array = Array(this.n); */
-    this.array = Array.from({ length: this.n }, () => Math.random() * 1 + 0.05);
     this.delay = 10;
     this.running = false;
     this.SortContainer = null; 
   }
 
+  initArray() {
+    this.array = Array.from({ length: this.n }, () => Math.random() * 1 + 0.05);
+  }
+
   ngOnInit(){
     
-   
     this.SortContainer = document.getElementById("sorting-container");
+    this.initArray();
     this.showBars();
-
-    let i = 0;
-    do {this.Shufflecurrent(); i++} while( i < 4);
+    
+    setTimeout(() => this.Shufflecurrent(), this.delay)
 
   }
 
@@ -55,7 +57,11 @@ export class SortingVisualiserComponent {
       bar.style.display = "inline-flex";
       bar.style.alignItems = "flex-end";
 
-      /* bar.style.margin = "0 1px"; */
+     if (moves && moves.indices.includes(i)) bar.style.backgroundColor = "#c778dd";
+      
+
+
+      /* bar.style.margin = "0 1px"; */ 
       this.renderer.addClass(document.body, "bar");
       this.SortContainer.appendChild(bar);
     }
@@ -91,6 +97,7 @@ export class SortingVisualiserComponent {
   
   async runBtn(sort:any, ...args: any[]) {
     this.running = true;
+    let swaps = sort(...args);
     await sort(...args);
     this.showBars();
     this.running = false;
@@ -132,6 +139,8 @@ export class SortingVisualiserComponent {
       /* playNote(200 + array[i] * 500);
       playNote(200 + array[start] * 500); */
     }
+    // to hide the staggering pink highlight on the last sorted bar
+    this.showBars();
   }
 
   async SelectionSort(array: number[]) {
@@ -145,7 +154,7 @@ export class SortingVisualiserComponent {
         array[i] = array[min];
         array[min] = temp;
         this.showBars({ indices: [i, min] });
-        await this.sleep(50);
+        await this.sleep(this.delay);
       }
     }
   }
@@ -163,10 +172,27 @@ export class SortingVisualiserComponent {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
-      await this.sleep(this.delay);
+      await this.sleep(40);
       this.showBars();
     }
     return array;
+  }
+
+  updateDelay(){
+    this.delay = Number((document.getElementById("time-slider") as HTMLInputElement)?.value);
+  }
+
+  updateWidth() {
+    let width = Number((document.getElementById("container")as HTMLInputElement)?.value);
+    this.SortContainer!.style.setProperty("--width", width + "%");
+    this.SortContainer!.style.color = "red";
+  }
+  
+  updateArraySize() {
+    this.n = Number((document.getElementById("size-slider") as HTMLInputElement)?.value);
+  
+    this.initArray();
+    this.showBars();
   }
 
 
