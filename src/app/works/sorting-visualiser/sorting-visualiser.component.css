@@ -162,6 +162,13 @@ button{
     font-weight: 500;
 }
 
-
-
-  
+.runningError{
+    position: absolute;
+    bottom: -59px;
+    font-weight: 500;
+    color: red;
+    font-family: "Fira Code";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+}

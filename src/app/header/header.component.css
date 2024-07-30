@@ -9,6 +9,12 @@
     position: relative;
 }
 
+.sectionActive{
+    transform: translateY(-5px);
+    text-decoration: underline #c778dd;
+
+}
+
 .logo-parent {
     position: absolute;
     top: 32px;

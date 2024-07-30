@@ -38,7 +38,7 @@ export class ProjectsComponent {
 
   NavToWorks(){
     this.router.navigate(['/works']).then( () => {
-      window.scrollTo(0, 0);
+      setTimeout( () => window.scrollTo(0, 0), 50);
 
       setTimeout( () =>{const element = document.getElementById('complete');
       if (element) {

@@ -9,7 +9,7 @@
   </div>
   
   <div class="header-link-parent">
-    <div class="header-link" *ngFor="let section of HomeSections">
+    <div class="header-link" routerLinkActive="sectionActive" *ngFor="let section of HomeSections">
       <div class="elias">#</div>
       <a 
       [routerLink]="getSectionRoute(section)"  

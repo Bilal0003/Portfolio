@@ -9,7 +9,8 @@
       min="10"
       max="100"
       step="1"
-      value="60"
+      [value]="200"
+      [disabled]="this.running"
       (input)="updateArraySize()"/>
     </div >
 
@@ -24,7 +25,7 @@
       min="0"
       max="300"
       stepDown="10"
-      [value]="10"
+      defaultValue="300"
       (input)="updateDelay()"/>
     </div>
   </div>
@@ -34,6 +35,9 @@
     <button class="btn" (click)="playMerge()">Merge Sort</button>
     <button class="btn" (click)="playSelectionSort()">Selection Sort</button>
     <button class="btn">Bogo Sort</button>
-    <button class="btn" (click)="Shufflecurrent()">Shuffle Array</button>
+    <button class="btn" (click)="playShuffle()">Shuffle Array</button>
+    <div class="runningError" *ngIf=""  >
+      Array currently being manipulated, please wait for the operations to complete.
+    </div>
   </div>
 </div>

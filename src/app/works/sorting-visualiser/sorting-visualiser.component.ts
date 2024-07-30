@@ -1,4 +1,5 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { Component, OnInit, Renderer2, NgModule } from '@angular/core';
 import { ControlContainer } from '@angular/forms';
 import { withNavigationErrorHandler } from '@angular/router';
 import { isInt8Array } from 'util/types';
@@ -6,7 +7,7 @@ import { isInt8Array } from 'util/types';
 @Component({
   selector: 'app-sorting-visualiser',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: './sorting-visualiser.component.html',
   styleUrl: './sorting-visualiser.component.css'
 })
@@ -18,12 +19,17 @@ export class SortingVisualiserComponent {
   SortContainer: any;
   delay: number;
   running: boolean;
+  isSorted: boolean;
+
 
   constructor(private renderer: Renderer2){
     this.n = 50;
     this.delay = 10;
     this.running = false;
     this.SortContainer = null; 
+    this.isSorted = false;
+    
+
   }
 
   initArray() {
@@ -36,7 +42,8 @@ export class SortingVisualiserComponent {
     this.initArray();
     this.showBars();
     
-    setTimeout(() => this.Shufflecurrent(), this.delay)
+    window.scrollTo(0,0);
+    setTimeout(() => this.playShuffle(), this.delay)
 
   }
 
@@ -70,24 +77,24 @@ export class SortingVisualiserComponent {
 
 
   async BS2(array: number[]) {
-    let sorted = false;
+    this.isSorted = false;
     let c = 0;
-    while (!sorted) {
-      sorted = true;
-      for (let i = 0; i < array.length; i++) {
-        if (array[i] > array[i + 1]) {
+    while (!this.isSorted) {
+      this.isSorted = true;
+      for (let i = 1; i < array.length; i++) {
+        if (array[i] < array[i - 1]) {
           c = array[i];
-          array[i] = array[i + 1];
-          array[i + 1] = c;
-          this.showBars({ indices: [i, i + 1] });
+          array[i] = array[i - 1];
+          array[i - 1] = c;
+          this.showBars({ indices: [i, i - 1] });
           await this.sleep(this.delay);
-          sorted = false;
+          this.isSorted = false;
         }
       }
     }
-
-    
-}
+    this.isSorted = true;
+    this.showBars();
+  }
 
   sleep(delay: number) {
     return new Promise((resolve) => {
@@ -104,11 +111,23 @@ export class SortingVisualiserComponent {
   }
   
   playBS2() {
+    if (!this.isSorted && !this.running)
     this.runBtn(this.BS2.bind(this), this.array);
   }
 
   playMerge() {
+    if (!this.isSorted && !this.running ) 
     this.runBtn(this.mergeSort.bind(this), this.array, 0, this.array.length);
+  }
+
+  playSelectionSort() {
+    if (!this.isSorted && !this.running)
+    this.runBtn(this.SelectionSort.bind(this), this.array);
+  }
+
+  playShuffle(){
+    if (!this.running)
+      this.runBtn(this.shuffle.bind(this), this.array);
   }
 
   async mergeSort(arr: number[], start:number, end:number) {
@@ -141,6 +160,8 @@ export class SortingVisualiserComponent {
     }
     // to hide the staggering pink highlight on the last sorted bar
     this.showBars();
+
+    this.isSorted = true;
   }
 
   async SelectionSort(array: number[]) {
@@ -159,22 +180,25 @@ export class SortingVisualiserComponent {
     }
   }
 
-  playSelectionSort() {
-    this.runBtn(this.SelectionSort.bind(this), this.array);
-  }
+  
 
   Shufflecurrent() {
-    const Shuffeled = this.shuffle(this.array);
+    if (!this.running)
+    {
+    this.shuffle(this.array);
+    this.isSorted = false;
     this.showBars();
+  }
   }
   
   async shuffle(array: number[]) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
-      await this.sleep(40);
+      await this.sleep(this.array.length/this.delay);
       this.showBars();
     }
+    this.isSorted = false;
     return array;
   }
 
@@ -182,15 +206,16 @@ export class SortingVisualiserComponent {
     this.delay = Number((document.getElementById("time-slider") as HTMLInputElement)?.value);
   }
 
-  updateWidth() {
+ /*  updateWidth() {
     let width = Number((document.getElementById("container")as HTMLInputElement)?.value);
     this.SortContainer!.style.setProperty("--width", width + "%");
     this.SortContainer!.style.color = "red";
-  }
+  } */
   
   updateArraySize() {
     this.n = Number((document.getElementById("size-slider") as HTMLInputElement)?.value);
   
+    this.isSorted = false;
     this.initArray();
     this.showBars();
   }
