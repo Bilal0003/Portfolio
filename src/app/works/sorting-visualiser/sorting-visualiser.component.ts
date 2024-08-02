@@ -23,8 +23,8 @@ export class SortingVisualiserComponent {
 
 
   constructor(private renderer: Renderer2){
-    this.n = 50;
-    this.delay = 10;
+    this.n = 100;
+    this.delay = 100;
     this.running = false;
     this.SortContainer = null; 
     this.isSorted = false;
