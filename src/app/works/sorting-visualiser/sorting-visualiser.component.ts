@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+import { NgIf, NgStyle } from '@angular/common';
 import { Component, OnInit, Renderer2, NgModule } from '@angular/core';
 import { ControlContainer } from '@angular/forms';
 import { withNavigationErrorHandler } from '@angular/router';
@@ -20,6 +20,7 @@ export class SortingVisualiserComponent {
   delay: number;
   running: boolean;
   isSorted: boolean;
+  runningError: any;
 
 
   constructor(private renderer: Renderer2){
@@ -28,7 +29,7 @@ export class SortingVisualiserComponent {
     this.running = false;
     this.SortContainer = null; 
     this.isSorted = false;
-    
+    this.runningError = null;
 
   }
 
@@ -36,9 +37,11 @@ export class SortingVisualiserComponent {
     this.array = Array.from({ length: this.n }, () => Math.random() * 1 + 0.05);
   }
 
+
   ngOnInit(){
     
     this.SortContainer = document.getElementById("sorting-container");
+    this.runningError = document.getElementById("runningError");
     this.initArray();
     this.showBars();
     
@@ -75,6 +78,14 @@ export class SortingVisualiserComponent {
 
   }
 
+  DispErrorMsg(){
+    
+    
+    this.runningError.innerHTML = "Array currently being manipulated, please wait for the operations to complete.";
+    this.runningError.classList.add('vibrate'); 
+    
+  }
+
 
   async BS2(array: number[]) {
     this.isSorted = false;
@@ -108,24 +119,30 @@ export class SortingVisualiserComponent {
     await sort(...args);
     this.showBars();
     this.running = false;
+    this.runningError.innerHTML= "";
+    this.runningError.classList.remove('vibrate');
   }
   
   playBS2() {
+    if (this.running) this.DispErrorMsg();
     if (!this.isSorted && !this.running)
     this.runBtn(this.BS2.bind(this), this.array);
   }
 
   playMerge() {
+    if (this.running) this.DispErrorMsg();
     if (!this.isSorted && !this.running ) 
     this.runBtn(this.mergeSort.bind(this), this.array, 0, this.array.length);
   }
 
   playSelectionSort() {
+    if (this.running) this.DispErrorMsg();
     if (!this.isSorted && !this.running)
     this.runBtn(this.SelectionSort.bind(this), this.array);
   }
 
   playShuffle(){
+    if (this.running) this.DispErrorMsg();
     if (!this.running)
       this.runBtn(this.shuffle.bind(this), this.array);
   }
@@ -213,6 +230,7 @@ export class SortingVisualiserComponent {
   } */
   
   updateArraySize() {
+
     this.n = Number((document.getElementById("size-slider") as HTMLInputElement)?.value);
   
     this.isSorted = false;
