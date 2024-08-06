@@ -1,5 +1,5 @@
-import { NgIf, NgStyle } from '@angular/common';
-import { Component, OnInit, Renderer2, NgModule } from '@angular/core';
+import { NgIf, NgStyle, isPlatformBrowser } from '@angular/common';
+import { Component, OnInit, Renderer2, NgModule, Inject, PLATFORM_ID } from '@angular/core';
 import { ControlContainer } from '@angular/forms';
 import { withNavigationErrorHandler } from '@angular/router';
 import { isInt8Array } from 'util/types';
@@ -23,7 +23,10 @@ export class SortingVisualiserComponent {
   runningError: any;
 
 
-  constructor(private renderer: Renderer2){
+  constructor(
+    private renderer: Renderer2,
+    @Inject(PLATFORM_ID) private platformId: Object)
+  {
     this.n = 100;
     this.delay = 100;
     this.running = false;
@@ -40,25 +43,33 @@ export class SortingVisualiserComponent {
 
   ngOnInit(){
     
-    this.SortContainer = document.getElementById("sorting-container");
-    this.runningError = document.getElementById("runningError");
+   /*  this.SortContainer = document.getElementById("sorting-container");
+    this.runningError = document.getElementById("runningError"); */
+
+    this.SortContainer = this.renderer.selectRootElement('#sorting-container', true);
+    this.runningError = this.renderer.selectRootElement('#runningError', true);
     this.initArray();
     this.showBars();
     
-    window.scrollTo(0,0);
-    setTimeout(() => this.playShuffle(), this.delay)
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo(0, 0);
+      setTimeout(() => this.playShuffle(), this.delay);
+    }
+
+    /* window.scrollTo(0,0);
+    setTimeout(() => this.playShuffle(), this.delay) */
 
   }
 
   showBars(moves?: any){
     if (!this.SortContainer) return; 
     this.SortContainer.innerHTML = "";
-    this.SortContainer = document.getElementById("sorting-container");
+    /* this.SortContainer = document.getElementById("sorting-container"); */
 
     const MaxHeight = Math.max(...this.array);
     const containerHeight = this.SortContainer.clientHeight;
 
-    for (let i = 0; i < this.array.length; i++){
+   /*  for (let i = 0; i < this.array.length; i++){
       const bar = document.createElement("div");
       bar.style.height = `${((this.array[i] / MaxHeight) * containerHeight) - 10}px`;
       bar.style.width = `${100 / this.array.length}%`;
@@ -69,11 +80,25 @@ export class SortingVisualiserComponent {
 
      if (moves && moves.indices.includes(i)) bar.style.backgroundColor = "#c778dd";
       
-
-
-      /* bar.style.margin = "0 1px"; */ 
       this.renderer.addClass(document.body, "bar");
       this.SortContainer.appendChild(bar);
+    }
+ */
+
+    for (let i = 0; i < this.array.length; i++) {
+      const bar = this.renderer.createElement('div');
+      this.renderer.setStyle(bar, 'height', `${((this.array[i] / MaxHeight) * containerHeight) - 10}px`);
+      this.renderer.setStyle(bar, 'width', `${100 / this.array.length}%`);
+      this.renderer.setStyle(bar, 'backgroundColor', 'rgba(255, 255, 255, 0.411)');
+      this.renderer.setStyle(bar, 'flex', '1');
+      this.renderer.setStyle(bar, 'display', 'inline-flex');
+      this.renderer.setStyle(bar, 'alignItems', 'flex-end');
+  
+      if (moves && moves.indices.includes(i)) {
+        this.renderer.setStyle(bar, 'backgroundColor', '#c778dd');
+      }
+  
+      this.renderer.appendChild(this.SortContainer, bar);
     }
 
   }
@@ -81,8 +106,11 @@ export class SortingVisualiserComponent {
   DispErrorMsg(){
     
     
-    this.runningError.innerHTML = "Array currently being manipulated, please wait for the operations to complete.";
-    this.runningError.classList.add('vibrate'); 
+    /* this.runningError.innerHTML = "Array currently being manipulated, please wait for the operations to complete.";
+    this.runningError.classList.add('vibrate'); */ 
+
+    this.renderer.setProperty(this.runningError, 'innerHTML', 'Array currently being manipulated, please wait for the operations to complete.');
+    this.renderer.addClass(this.runningError, 'vibrate');
     
   }
 
@@ -220,7 +248,10 @@ export class SortingVisualiserComponent {
   }
 
   updateDelay(){
-    this.delay = Number((document.getElementById("time-slider") as HTMLInputElement)?.value);
+    /* this.delay = Number((document.getElementById("time-slider") as HTMLInputElement)?.value); */
+
+    this.renderer.setProperty(this.runningError, 'innerHTML', 'Array currently being manipulated, please wait for the operations to complete.');
+    this.renderer.addClass(this.runningError, 'vibrate');
   }
 
  /*  updateWidth() {
@@ -231,7 +262,10 @@ export class SortingVisualiserComponent {
   
   updateArraySize() {
 
-    this.n = Number((document.getElementById("size-slider") as HTMLInputElement)?.value);
+    /* this.n = Number((document.getElementById("size-slider") as HTMLInputElement)?.value); */
+
+    const slider = this.renderer.selectRootElement('#size-slider', true) as HTMLInputElement;
+    this.n = Number(slider.value);
   
     this.isSorted = false;
     this.initArray();
