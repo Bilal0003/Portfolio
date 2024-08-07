@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/frontendd-app", 
-            "baseHref": "/Portfolio-frontendapp/",
+            "baseHref": "/Portfolio/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -35,6 +35,7 @@
               "entry": "server.ts"
             }
           },
+          
           "configurations": {
             "production": {
               "budgets": [
@@ -45,8 +46,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "4kB",
+                  "maximumError": "10kB"
                 }
               ],
               "outputHashing": "all"
@@ -96,6 +97,9 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy"
+        },
+        "build-generate-404-page" : {
+          "builder":"./builders:build-generate-404-page"
         }
       }
     }

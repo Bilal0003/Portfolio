@@ -1,5 +1,7 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
+# https://dev.to/andyt2503/angular-fix-404-error-after-reloading-github-pages-with-custom-angular-cli-builder-1270
+
 # Compiled output
 /dist
 /tmp
