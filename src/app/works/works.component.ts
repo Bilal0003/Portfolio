@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
 import { FooterComponent } from "../footer/footer.component";
 import { CompleteAppsComponent } from "./complete-apps/complete-apps.component";
@@ -15,13 +15,15 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class WorksComponent {
 
-  constructor(private router: Router){
+  constructor(private router: Router,
+    private renderer: Renderer2)
+  {
 
   }
 
   NavToWorks(){
     this.router.navigate(['/works']).then( () => {
-      const element = document.getElementById('complete');
+      const element = this.renderer.selectRootElement('#complete', true);
       if (element) {
         element.scrollIntoView( {behavior: 'smooth'} );
       }

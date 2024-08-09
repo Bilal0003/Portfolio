@@ -14,6 +14,6 @@ export class HeaderComponent {
   HomeSections: String[] = ["home", "works","about-me","contacts"];
  
   getSectionRoute(section: String){
-    return "/"+ section;
+    return "./"+ section;
   }
 }

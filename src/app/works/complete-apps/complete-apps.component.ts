@@ -18,50 +18,50 @@ export class CompleteAppsComponent {
 
   constructor(private router: Router) {
     this.CompleteProjects = [
-      {ProjectImage: "/assets/ChertNodes.png",
+      {ProjectImage: "./assets/ChertNodes.png",
         languages: "HTML SCSS Python Flask",
         name: "ChertNodes",
         description: "Minecraft severs hosting",
-        route: '/works/project/chertnodes'
+        route: '/works/chertnodes'
   
-       }, {ProjectImage: "/assets/ProtectX.png",
+       }, {ProjectImage: "./assets/ProtectX.png",
         languages: "React Express Discord.js Node.js HTML SCSS Python Flask",
         name: "ProtectX",
         description: "Discord anti-crash bot",
-        route: '/works/project/projectx'
+        route: '/works/projectx'
   
-       } , {ProjectImage: "/assets/Kahoot.png",
+       } , {ProjectImage: "./assets/Kahoot.png",
         languages: "CSS Express Node.js",
         name: "Kahoot Answers Viewer",
         description: "Get asnwers to your kahoot quiz",
-        route: '/works/project/kahoot'
+        route: '/works/kahoot'
        },
        {
-        ProjectImage : "/assets/visualiser.png",
+        ProjectImage : "./assets/visualiser.png",
         languages : "JS CSS HTML",
         name : "Sorting Visualizer",
         description : "Développement d'un visualiseur web interactif permettant aux utilisateurs de visualiser en temps réel divers algorithmes de tri.",
-        route: '/works/project/sorting-visualiser'
+        route: '/works/sorting-visualiser'
        },
        {
-        ProjectImage: "/assets/hubbard.png",
+        ProjectImage: "./assets/hubbard.png",
         languages: "Python Flask",
         name: "Simulation of The Hubbard model",
         description: "A visualiser of the sub atomique interactions when interferences is taking into account",
-        route: '/works/project/hubbard'
+        route: '/works/hubbard'
        },
        {
-        ProjectImage: "/assets/Duffing.png",
+        ProjectImage: "./assets/Duffing.png",
         languages: "Matlab Python",
         name: "The Duffing Oscillator",
         description: "A visualistion of the chaotic behavior of the duffing oscillator",
-        route: '/works/project/duffing'
+        route: '/works/duffing'
        }
     ]
   }
 
   projects = [
-    { id: 'sorting-visualiser', name: 'Sorting Visualiser', route: '/works/project/sorting-visualiser' }
+    { id: 'sorting-visualiser', name: 'Sorting Visualiser', route: '/works/sorting-visualiser' }
   ]
 
   ngOnInit() {
