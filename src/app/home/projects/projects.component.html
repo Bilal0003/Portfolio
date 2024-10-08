@@ -1,8 +1,11 @@
 <div class="projects">
-  
   <div class="project-parent">
     <div class="project" *ngFor="let project of projects">
-      <app-project [project]="project"></app-project>
+      <app-project
+        [project]="project"
+        (click)="navToProject(project)"
+      >
+      </app-project>
     </div>
   </div>
 
@@ -14,7 +17,7 @@
       </div>
       <img class="line-7-stroke" alt="" src="./assets/Line 7 (Stroke).png" />
     </div>
-    <a class="view-all" id="viewAll" (click)="NavToWorks()" >View all ~~&gt;</a>
+    <a class="view-all" id="viewAll" (click)="NavToWorks()">View all ~~&gt;</a>
   </div>
 </div>
 

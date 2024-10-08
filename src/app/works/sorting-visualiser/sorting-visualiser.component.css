@@ -184,3 +184,14 @@ button{
 .vibrate {
     animation: vibrate 0.3s linear;
 }
+
+.stop-btn{
+    background-color: red;
+}
+
+.stop-btn:disabled {
+    background-color: #ccc;  /* Grey background */
+    color: #666;  /* Greyed out text */
+    cursor: not-allowed;  /* Change cursor to show it's not clickable */
+    opacity: 0.7;  /* Slightly transparent */
+  }
