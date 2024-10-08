@@ -19,6 +19,11 @@ export class SmallProjectsComponent {
       { languages: 'Java',
         title: 'Robots World',
         description: 'An interactive 2D world, where cleaning robots and garbage robots can exist'
+      },
+      {
+        languages: 'Python',
+        title: 'Web Scraper',
+        description: 'a fast basic-level web crawling & scraping bot using python.'
       }
     ]
   }

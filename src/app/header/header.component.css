@@ -132,6 +132,10 @@
     width: 32px;
     position: relative;
     height: 32px;
+    transition : 300ms ease-in-out;
+}
+.github-icon:hover{
+    transform: scale(1.3) rotate(360deg);
 }
 .github-parent {
     display: flex;

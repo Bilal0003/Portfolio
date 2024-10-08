@@ -163,7 +163,7 @@
 }
 
 .project-parent .project{
-    transition: 400ms;
+    transition: 300ms;
 }
 
 .project:hover{

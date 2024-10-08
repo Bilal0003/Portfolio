@@ -22,10 +22,10 @@
       <div class="delay-size-text">Delay</div>
       <input id="time-slider"
       type="range"
-      min="0"
+      min="1"
       max="300"
       stepDown="10"
-      defaultValue="300"
+      [defaultValue]="this.delay"
       (input)="updateDelay()"/>
     </div>
   </div>
@@ -39,5 +39,10 @@
     <div id="runningError" >
       
     </div>
+    <button class="btn stop-btn" 
+            (click)="StopRunning()" 
+            [disabled]="!this.running"
+            >Stop
+    </button>
   </div>
 </div>

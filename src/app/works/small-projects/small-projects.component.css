@@ -48,6 +48,8 @@
     color: #c778dd;
 }
 .small {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     border: 1px solid #abb2bf;
     margin-top: 200px;
     margin-left: auto;
@@ -59,6 +61,7 @@
     font-size: 16px;
     color: #abb2bf;
     font-family: 'Fira Code';
+    margin-bottom: 50px;
 }
 
 .live {
