@@ -11,6 +11,7 @@ import {
 import { ControlContainer } from '@angular/forms';
 import { withNavigationErrorHandler } from '@angular/router';
 import { isInt8Array } from 'util/types';
+import { SortingService } from './sorting.service';
 
 @Component({
   selector: 'app-sorting-visualiser',
@@ -31,7 +32,8 @@ export class SortingVisualiserComponent {
 
   constructor(
     private renderer: Renderer2,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private sortingService: SortingService
   ) {
     this.n = 100;
     this.delay = 10;
@@ -43,13 +45,10 @@ export class SortingVisualiserComponent {
   }
 
   initArray() {
-    this.array = Array.from({ length: this.n }, () => Math.random() * 1 + 0.05);
+    this.array = this.sortingService.initArray(this.n);
   }
 
   ngOnInit() {
-    /*  this.SortContainer = document.getElementById("sorting-container");
-    this.runningError = document.getElementById("runningError"); */
-
     this.SortContainer = this.renderer.selectRootElement(
       '#sorting-container',
       true
@@ -62,41 +61,18 @@ export class SortingVisualiserComponent {
       window.scrollTo(0, 0);
       setTimeout(() => this.playShuffle(), this.delay);
     }
-
-    /* window.scrollTo(0,0);
-    setTimeout(() => this.playShuffle(), this.delay) */
   }
 
   showBars(moves?: any) {
     if (!this.SortContainer) return;
     this.SortContainer.innerHTML = '';
 
-    const MaxHeight = Math.max(...this.array);
-    const containerHeight = this.SortContainer.clientHeight;
-
-    for (let i = 0; i < this.array.length; i++) {
-      const bar = this.renderer.createElement('div');
-      this.renderer.setStyle(
-        bar,
-        'height',
-        `${(this.array[i] / MaxHeight) * containerHeight - 10}px`
-      );
-      this.renderer.setStyle(bar, 'width', `${100 / this.array.length}%`);
-      this.renderer.setStyle(
-        bar,
-        'backgroundColor',
-        'rgba(255, 255, 255, 0.411)'
-      );
-      this.renderer.setStyle(bar, 'flex', '1');
-      this.renderer.setStyle(bar, 'display', 'inline-flex');
-      this.renderer.setStyle(bar, 'alignItems', 'flex-end');
-
-      if (moves && moves.indices.includes(i)) {
-        this.renderer.setStyle(bar, 'backgroundColor', '#c778dd');
-      }
-
-      this.renderer.appendChild(this.SortContainer, bar);
-    }
+    this.sortingService.renderBars(
+      this.SortContainer,
+      this.array,
+      this.renderer,
+      moves
+    );
   }
 
   DispErrorMsg() {
@@ -111,7 +87,6 @@ export class SortingVisualiserComponent {
   StopRunning() {
     this.StopRequested = true;
     this.running = false;
-    console.log('stop requested');
   }
 
   async BS2(array: number[]) {
@@ -165,9 +140,11 @@ export class SortingVisualiserComponent {
   }
 
   playBS2() {
-    if (this.running) this.DispErrorMsg();
+    this.playBS2();
+
+    /*  if (this.running) this.DispErrorMsg();
     if (!this.isSorted && !this.running)
-      this.runBtn(this.BS2.bind(this), this.array);
+      this.runBtn(this.BS2.bind(this), this.array); */
   }
 
   playMerge() {
