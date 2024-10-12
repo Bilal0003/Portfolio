@@ -140,11 +140,11 @@ export class SortingVisualiserComponent {
   }
 
   playBS2() {
-    this.playBS2();
+    /* this.playBS2(); */
 
-    /*  if (this.running) this.DispErrorMsg();
+    if (this.running) this.DispErrorMsg();
     if (!this.isSorted && !this.running)
-      this.runBtn(this.BS2.bind(this), this.array); */
+      this.runBtn(this.BS2.bind(this), this.array);
   }
 
   playMerge() {
