@@ -1,0 +1,7 @@
+{
+    "/api":{
+        "target" :"https://zenquotes.io/api/quotes",
+        "secure": true,
+        "changeOrigin": true
+    }
+}

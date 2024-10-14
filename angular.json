@@ -65,7 +65,8 @@
               "buildTarget": "frontendd-app:build:production"
             },
             "development": {
-              "buildTarget": "frontendd-app:build:development"
+              "buildTarget": "frontendd-app:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
