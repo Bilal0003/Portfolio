@@ -2,18 +2,28 @@
 
 
 <div class="quote">
-    <div class="with-great-power">
-      With great power comes great electricity bill
+  <div class="wrapper">
+    <img class="icon" alt="" src="./assets/quotes.png" />
+  </div>
+      <spartan-carousel-preview
+      [QoD]="this.QoD"></spartan-carousel-preview>
+      <spartan-hover-card-preview class="quote-of-day">
+
+      </spartan-hover-card-preview>
+
+      <div class="dr-who-wrapper">
+        <div class="dr-who" id="dr-who">{{this.QoD[0].a}}</div>
+        <div class="container">
+          <img class="icon" alt="" src="./assets/quotes.png" />
+        </div>
+      </div>
+    
+      <!-- <div class="with-great-power">
+      {{this.QoD[0].q}}
     </div>
-    <div class="wrapper">
-      <img class="icon" alt="" src="./assets/quotes.png" />
-    </div>
-    <div class="dr-who-wrapper">
-      <div class="dr-who">- Dr. Who</div>
-    </div>
-    <div class="container">
-      <img class="icon" alt="" src="./assets/quotes.png" />
-    </div>
+    
+     -->
+
 </div>
 
 

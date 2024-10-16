@@ -13,7 +13,6 @@
     height: 20.7px;
 }
 .wrapper {
-    position: relative;
     margin: 0 !important;
     position: absolute;
     top: -14px;
@@ -33,11 +32,25 @@
     color: #fff;
     text-align: left;
 }
+.quote-of-day{
+    position: absolute;
+    bottom: 100%;
+    right:  2%;
+    top: -11px;
+    background-color: #282c33 ;
+    color: #FFF;
+    font-family: "Fira Code";
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: normal;
+    
+}
 .dr-who-wrapper {
-    width: 170px;
+    width: auto;
     margin: 0 !important;
     position: absolute;
-    top: 97px;
+    top: 100%;
     right: -1px;
     border: 1px solid #abb2bf;
     border-top:none;
@@ -48,10 +61,13 @@
     padding: 15px;
     z-index: 2;
 }
+.quote-parent{
+    word-break: break-word;
+}
 .container {
     margin: 0 !important;
     position: absolute;
-    top: 80px;
+    top: -10px;
     right: 16.5px;
     background-color: #282c33;
     display: flex;
@@ -66,7 +82,8 @@
     position: relative;
     top: 112px;
     margin: auto;
-    width: 790px;
+    width: fit-content;
+    max-width: 790px;
     display: flex;
     flex-direction: row;
     box-sizing: border-box;

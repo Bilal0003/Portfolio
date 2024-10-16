@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class QuotesService {
   constructor(private http: HttpClient) {}
 
-  getQuotes(): Observable<JSON> {
-    return this.http.get<JSON>('/api');
+  getQuotes(): Observable<JSON[]> {
+    return this.http.get<JSON[]>('/api');
   }
 }
