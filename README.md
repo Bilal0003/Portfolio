@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.0.
 
+## Notes
+J'utilise un script pour récuperer les quotes en local, puisque c'est pas possible de faire un call à l'API (en environement prod) à cause de l'erreur CORS (Cross origin).
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

@@ -1,5 +1,5 @@
 import { NgFor } from '@angular/common';
-import { Component, Input, Renderer2 } from '@angular/core';
+import { Component, Input, OnInit, Output, Renderer2 } from '@angular/core';
 
 import {
   HlmCarouselComponent,
@@ -9,6 +9,7 @@ import {
   HlmCarouselPreviousComponent,
 } from '@spartan-ng/ui-carousel-helm';
 import { AnyMxRecord } from 'dns';
+import { OutgoingMessage } from 'http';
 
 @Component({
   selector: 'spartan-carousel-preview',
@@ -32,6 +33,7 @@ import { AnyMxRecord } from 'dns';
               <p hlmCardContent class="w-auto max-w-790px">
                 <span class="with-great-power w-auto">{{ quote.q }}</span>
               </p>
+
               <!--  -->
 
               <!--  -->
@@ -44,15 +46,22 @@ import { AnyMxRecord } from 'dns';
     </div>
   `,
 })
-export class CarouselPreviewComponent {
+export class CarouselPreviewComponent implements OnInit {
   @Input() QoD!: any[];
+  @Output() firstAuth: any;
   public constructor(private renderer: Renderer2) {}
   private authorDiv: any;
-  private i = 0;
   private curr = 0;
 
-  updateAuthorIncr() {
+  ngOnInit(): void {
     this.authorDiv = this.renderer.selectRootElement('.dr-who');
+  }
+
+  InitAuthor() {
+    this.firstAuth = this.QoD[0].a;
+  }
+
+  updateAuthorIncr() {
     if (this.curr >= 0 && this.curr < 5) {
       this.curr += 1;
       this.authorDiv.innerText = this.QoD[this.curr].a;
@@ -60,7 +69,6 @@ export class CarouselPreviewComponent {
   }
 
   updateAuthorDecr() {
-    this.authorDiv = this.renderer.selectRootElement('.dr-who');
     if (this.curr > 0 && this.curr <= 5) {
       this.curr -= 1;
       this.authorDiv.innerText = this.QoD[this.curr].a;
